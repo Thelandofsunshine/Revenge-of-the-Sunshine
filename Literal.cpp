@@ -11,6 +11,19 @@
 
 #include "Literal.h"
 
+const char* const SYMBOL_STRINGS[] =
+{
+    "<no token>", "<IDENTIFIER>", "<NUMBER>", "<STRING>",
+    "^","*","(",")","-","+","=","[","]",":",";",
+    "<",">",",",".","/",":=","<=",">=","<>","..",
+    "<END OF FILE>", "<ERROR>",
+    "AND","ARRAY","BEGIN","CASE","CONST","DIV","DO","DOWNTO",
+    "ELSE","END","FILE","FOR","FUNCTION","GOTO","IF","IN",
+    "LABEL","MOD","NIL","NOT","OF","OR","PACKED","PROCEDURE",
+    "PROGRAM","RECORD","REPEAT","SET","THEN","TO","TYPE","UNTIL",
+    "VAR","WHILE","WITH",
+};
+
 Literal::Literal()
 {
     //What code do I need here to initialize everything.
@@ -100,15 +113,20 @@ LineNumberList *Literal::getLineNumberList()
 
 void String::print()
 {
-		cout << "    >> " << getCode() << "\t" << get_lit().c_str() << endl;
+		cout << "    >> " << SYMBOL_STRINGS[getCode()] << "\t";
+		if(string(SYMBOL_STRINGS[getCode()]).length() < 9)
+		{
+			cout << "\t";
+		}
+		cout << getTokenString().c_str() << endl;
 }
 
 void Integer::print()
 {
-		cout << "    >> " << getCode() << "\t"  << get_lit() << "(integer)" << endl;
+		cout << "    >> " << SYMBOL_STRINGS[getCode()] << "\t\t"  << getTokenString().c_str() << "\t(integer)" << endl;
 }
 
 void Real::print()
 {
-		cout << "    >> " << getCode() << "\t"  << get_lit() << "(real)" << endl;
+		cout << "    >> " << SYMBOL_STRINGS[getCode()] << "\t\t"  << getTokenString().c_str() << "\t(real)" << endl;
 }

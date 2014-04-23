@@ -14,7 +14,6 @@
 #define __Lab4__IdentifierBinaryTree__
 
 #include <iostream>
-#include "Token.h"
 #include "Literal.h"
 
 class IdentifierBinaryTree

@@ -37,7 +37,7 @@ Print::~Print()
 {
     
 }
-void Print::printLine(char line[])
+void Print::printLine(char line[], bool token)
 {
     char save_ch = '\0';
     char *save_chp = NULL;
@@ -47,25 +47,24 @@ void Print::printLine(char line[])
         printPageHeader();
         lineCount = 1;
     }
-    if (strlen(line) > MAX_PRINT_LINE_LENGTH)
-    {
-        save_chp = &line[MAX_PRINT_LINE_LENGTH];
-    }
-    if (save_chp)
-    {
-        save_ch = *save_chp;
-        *save_chp = '\0';
-    }
-	//null is used as an indicator that the token
-	//will be printed elsewhere
-	if('\0' != line[0])
+	if(!token)
 	{
+		if (strlen(line) > MAX_PRINT_LINE_LENGTH)
+		{
+			save_chp = &line[MAX_PRINT_LINE_LENGTH];
+		}
+		if (save_chp)
+		{
+			save_ch = *save_chp;
+			*save_chp = '\0';
+		}
 		printf("%s", line);
+	
+		if (save_chp)
+		{
+			*save_chp = save_ch;
+		}
 	}
-    if (save_chp)
-    {
-        *save_chp = save_ch;
-    }
 }
 void Print::printPageHeader()
 {
@@ -75,7 +74,7 @@ void Print::printPageHeader()
 void Print::printLit(Literal *token)
 {
 	//calls a blank print to advance the line number tracker
-    printLine('\0');
+    printLine('\0', true);
 	//actually prints the token
 	token->print();
 }
@@ -92,7 +91,7 @@ void Print::printTreeRecursive(Literal *identifier)
         printTreeRecursive(identifier->getLeftChild());
     }
     sprintf(line, " %-16s %-s", identifier->getTokenString().c_str(), " ");
-    printLine(line);
+    printLine(line, false);
     
     LineNumberList *list = identifier->getLineNumberList();
     while (list != NULL)

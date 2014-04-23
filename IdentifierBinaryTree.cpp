@@ -36,7 +36,6 @@ void IdentifierBinaryTree::depthFirstDeleteTree(Literal *lit)
     {
         depthFirstDeleteTree(lit->getLeftChild());
     }
-//    cout << tok->getTokenString() << "\n";
     if (lit->getRightChild() != NULL)
     {
         depthFirstDeleteTree(lit->getRightChild());

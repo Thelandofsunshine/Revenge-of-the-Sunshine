@@ -33,7 +33,7 @@ public:
     Print(char source_name[], char date[]);
     ~Print();
     
-    void printLine(char line[]);
+    void printLine(char line[], bool token);
     void printLit(Literal *token);
     int getLineCount();
     void printTree(Literal *identifier);

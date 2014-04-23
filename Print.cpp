@@ -11,7 +11,7 @@
 //	Git Hub URL: https://github.com/Thelandofsunshine/Revenge-of-the-Sunshine
 
 #include "Print.h"
-#include "Token.h"
+#include "Literal.h"
 
 const char* const SYMBOL_STRINGS[] =
 {
@@ -56,7 +56,12 @@ void Print::printLine(char line[])
         save_ch = *save_chp;
         *save_chp = '\0';
     }
-    printf("%s", line);
+	//null is used as an indicator that the token
+	//will be printed elsewhere
+	if('\0' != line[0])
+	{
+		printf("%s", line);
+	}
     if (save_chp)
     {
         *save_chp = save_ch;
@@ -67,37 +72,18 @@ void Print::printPageHeader()
     putchar(FORM_FEED_CHAR);
     printf("Page    %d  %s  %s\n\n", ++pageNumber, sourceFileName.c_str(), currentDate.c_str());
 }
-void Print::printToken(Token *token)
+void Print::printLit(Literal *token)
 {
-    char line[MAX_SOURCE_LINE_LENGTH + 32];
-    const char *symbol_string = SYMBOL_STRINGS[token->getCode()];
-    
-    switch (token->getCode())
-    {
-        case NUMBER:
-            if (token->getType() == INTEGER_LIT)
-            {
-                sprintf(line, "    >> %-16s %d (integer)\n", symbol_string, token->getIntLiteral());
-            }
-            else
-            {
-                sprintf(line, "    >> %-16s %g (real)\n", symbol_string, token->getRealLiteral());
-            }
-            break;
-        case STRING:
-            sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getStringLiteral().c_str());
-            break;
-        default:
-            sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
-            break;
-    }
-    printLine(line);
+	//calls a blank print to advance the line number tracker
+    printLine('\0');
+	//actually prints the token
+	token->print();
 }
 int Print::getLineCount()
 {
     return this->lineCount;
 }
-void Print::printTreeRecursive(Token *identifier)
+void Print::printTreeRecursive(Literal *identifier)
 {
     char line[MAX_SOURCE_LINE_LENGTH + 32];
     
@@ -120,7 +106,7 @@ void Print::printTreeRecursive(Token *identifier)
         printTreeRecursive(identifier->getRightChild());
     }
 }
-void Print::printTree(Token *identifier)
+void Print::printTree(Literal *identifier)
 {
     cout << "\n Cross Reference Information\n";
     cout << " Identifier \t\tLine Numbers\n";

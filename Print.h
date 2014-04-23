@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include "common.h"
-#include "Token.h"
+#include "Literal.h"
 
 using namespace std;
 
@@ -34,10 +34,10 @@ public:
     ~Print();
     
     void printLine(char line[]);
-    void printToken(Token *token);
+    void printLit(Literal *token);
     int getLineCount();
-    void printTree(Token *identifier);
-    void printTreeRecursive(Token *identifier);
+    void printTree(Literal *identifier);
+    void printTreeRecursive(Literal *identifier);
 };
 
 #endif /* defined(__Lab4__Print__) */

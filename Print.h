@@ -3,7 +3,12 @@
 //  Lab4
 //
 //  Created by Bryce Holton.
-//
+//	Updated by:
+//	Savannah Puckett (snpucket)
+//	Ashley Kruger (alkruege)
+//	Emily Falkner (emilymarie)
+//	Scott Dexhimer (SDexh)
+//	Git Hub URL: https://github.com/Thelandofsunshine/Revenge-of-the-Sunshine
 
 #ifndef __Lab4__Print__
 #define __Lab4__Print__

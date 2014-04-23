@@ -3,7 +3,11 @@
 //  Lab4
 //
 //  Created by Bryce Holton.
-//
+//	Updated by:
+// Savannah Puckett (snpucket)
+// Ashley Kruger (alkruege)
+// Emily Falkner (emilymarie)
+// Scott Dexhimer (SDexh)
 
 #ifndef __Lab4__Token__
 #define __Lab4__Token__

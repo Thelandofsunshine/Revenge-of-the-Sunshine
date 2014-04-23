@@ -42,6 +42,8 @@ public:
     void setType(LiteralType newType);
     LiteralType getType();
 
+	virtual void print() = 0;
+
     void setTokenString(string s);
     string getTokenString();
     void setLeftChild(Literal *tok);
@@ -61,7 +63,26 @@ public:
 	Node(T liter)				{lit = liter;}
 	T get_lit()					{return lit;}
 	void set_lit(T liter)		{lit = liter;}
+	virtual void print() = 0;
 	~Node()						{delete lit;}
 };
 
+class String : public Node<string>
+{
+public:
+	String (string str) : Node<string> (str) {}
+	void print();
+};
+class Real : public Node<double>
+{
+public:
+	Real (double dbl) : Node<double> (dbl) {}
+	void print();
+};
+class Integer : public Node<int>
+{
+public:
+	Integer (int i) : Node<int> (i) {}
+	void print();
+};
 #endif /* defined(__Lab4__Token__) */

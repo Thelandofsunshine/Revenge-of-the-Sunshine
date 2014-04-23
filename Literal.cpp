@@ -1,7 +1,8 @@
 //
 //  Literal.cpp
 //  Lab4
-//	
+//
+//  Created By:
 //	Savannah Puckett (snpucket)
 //	Ashley Kruger (alkruege)
 //	Emily Falkner (emilymarie)

@@ -2,8 +2,6 @@
 //  Literal.h
 //  Lab4
 //
-//  Created by Bryce Holton.
-//	Updated by:
 // Savannah Puckett (snpucket)
 // Ashley Kruger (alkruege)
 // Emily Falkner (emilymarie)
@@ -17,7 +15,6 @@
 #include "LineNumberList.h"
 
 using namespace std;
-
 
 /**************
  this is a valid Pascal Literal.  A Literal must have a literal type,
@@ -64,7 +61,6 @@ public:
 	T get_lit()					{return lit;}
 	void set_lit(T liter)		{lit = liter;}
 	virtual void print() = 0;
-	~Node()						{delete lit;}
 };
 
 class String : public Node<string>
@@ -85,4 +81,5 @@ public:
 	Integer (int i) : Node<int> (i) {}
 	void print();
 };
-#endif /* defined(__Lab4__Token__) */
+
+#endif 

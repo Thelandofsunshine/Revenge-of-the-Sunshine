@@ -2,7 +2,7 @@
 //  Literal.cpp
 //  Lab4
 //
-//  Created By:
+//	Updated by:
 //	Savannah Puckett (snpucket)
 //	Ashley Kruger (alkruege)
 //	Emily Falkner (emilymarie)
@@ -96,4 +96,19 @@ void Literal::addToLineNumberList(LineNumberList *listItem)
 LineNumberList *Literal::getLineNumberList()
 {
     return this->list;
+}
+
+void String::print()
+{
+		cout << "    >> " << getCode() << "\t" << get_lit().c_str() << endl;
+}
+
+void Integer::print()
+{
+		cout << "    >> " << getCode() << "\t"  << get_lit() << "(integer)" << endl;
+}
+
+void Real::print()
+{
+		cout << "    >> " << getCode() << "\t"  << get_lit() << "(real)" << endl;
 }

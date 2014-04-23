@@ -1,9 +1,7 @@
 //
 //  Literal.h
 //  Lab4
-//
-//  Created by Bryce Holton.
-//	Updated by:
+
 // Savannah Puckett (snpucket)
 // Ashley Kruger (alkruege)
 // Emily Falkner (emilymarie)

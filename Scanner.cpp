@@ -12,6 +12,8 @@
 
 #include "Scanner.h"
 #include "Print.h"
+#include "Literal.h"
+
 
 typedef struct
 {

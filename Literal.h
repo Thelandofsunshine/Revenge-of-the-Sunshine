@@ -1,22 +1,22 @@
 //
 //  Literal.h
 //  Lab4
-
-// Created By:
+//
+//  Created by Bryce Holton.
+//	Updated by:
 // Savannah Puckett (snpucket)
 // Ashley Kruger (alkruege)
 // Emily Falkner (emilymarie)
 // Scott Dexhimer (SDexh)
 
-#ifndef __Lab4__Token__
-#define __Lab4__Token__
+#ifndef Lit_h
+#define Lit_h
 
 #include <iostream>
 #include "common.h"
 #include "LineNumberList.h"
 
 using namespace std;
-
 
 
 /**************
@@ -28,9 +28,8 @@ class Literal
 private:
     TokenCode code;
     LiteralType type;
-
+	
     string tokenString;
-    //What variables and methods am I missing to implement a binary tree.
     Literal *leftChild;
     Literal *rightChild;
     LineNumberList *list;
@@ -43,9 +42,6 @@ public:
     void setType(LiteralType newType);
     LiteralType getType();
 
-	virtual void* get_lit() = 0;
-	virtual void set_lit(void *) = 0;
-
     void setTokenString(string s);
     string getTokenString();
     void setLeftChild(Literal *tok);
@@ -54,6 +50,18 @@ public:
     Literal *getRightChild();
     void addToLineNumberList(LineNumberList *listItem);
     LineNumberList *getLineNumberList();
+};
+
+template<class T>
+class Node: public Literal
+{
+private:
+	T lit;
+public:
+	Node(T liter)				{lit = liter;}
+	T get_lit()					{return lit;}
+	void set_lit(T liter)		{lit = liter;}
+	~Node()						{delete lit;}
 };
 
 #endif /* defined(__Lab4__Token__) */

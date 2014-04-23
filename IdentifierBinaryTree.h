@@ -15,19 +15,20 @@
 
 #include <iostream>
 #include "Token.h"
+#include "Literal.h"
 
 class IdentifierBinaryTree
 {
-    Token *treeRoot;
+    Literal  *treeRoot;
     
-    void depthFirstDeleteTree(Token *tok);
+    void depthFirstDeleteTree(Literal *lit);
     
 public:
     IdentifierBinaryTree();
     ~IdentifierBinaryTree();
-    void setTreeRoot(Token *root);
-    Token *getTreeRoot();
-    bool addIdentifier(Token *tok, int lineNum);
+    void setTreeRoot(Literal *root);
+    Literal *getTreeRoot();
+    bool addIdentifier(Literal *lit, int lineNum);
 };
 
 #endif /* defined(__Lab4__IdentifierBinaryTree__) */

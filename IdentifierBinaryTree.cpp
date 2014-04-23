@@ -13,6 +13,7 @@
 
 #include "IdentifierBinaryTree.h"
 #include "LineNumberList.h"
+#include "Literal.h"
 
 using namespace std;
 
@@ -29,28 +30,28 @@ IdentifierBinaryTree::~IdentifierBinaryTree()
         depthFirstDeleteTree(root);
     }
 }
-void IdentifierBinaryTree::depthFirstDeleteTree(Token *tok)
+void IdentifierBinaryTree::depthFirstDeleteTree(Literal *lit)
 {
-    if (tok->getLeftChild() != NULL)
+    if (lit->getLeftChild() != NULL)
     {
-        depthFirstDeleteTree(tok->getLeftChild());
+        depthFirstDeleteTree(lit->getLeftChild());
     }
 //    cout << tok->getTokenString() << "\n";
-    if (tok->getRightChild() != NULL)
+    if (lit->getRightChild() != NULL)
     {
-        depthFirstDeleteTree(tok->getRightChild());
+        depthFirstDeleteTree(lit->getRightChild());
     }
-    delete tok;
+    delete lit;
 }
-void IdentifierBinaryTree::setTreeRoot(Token *root)
+void IdentifierBinaryTree::setTreeRoot(Literal *root)
 {
     this->treeRoot = root;
 }
-Token *IdentifierBinaryTree::getTreeRoot()
+Literal *IdentifierBinaryTree::getTreeRoot()
 {
     return this->treeRoot;
 }
-bool IdentifierBinaryTree::addIdentifier(Token *tok, int lineNum)
+bool IdentifierBinaryTree::addIdentifier(Literal *lit, int lineNum)
 {
     bool success = false;
     LineNumberList *listItem = new LineNumberList();
@@ -58,27 +59,27 @@ bool IdentifierBinaryTree::addIdentifier(Token *tok, int lineNum)
     listItem->setLineNumber(lineNum);
     if (getTreeRoot() == NULL)
     {
-        setTreeRoot(tok);
-        tok->addToLineNumberList(listItem);
+        setTreeRoot(lit);
+        lit->addToLineNumberList(listItem);
         success = true;
     }
     else
     {
-        string tokenName = tok->getTokenString();
-        Token *parentNode = getTreeRoot();
+        string literalName = lit->getTokenString();
+        Literal *parentNode = getTreeRoot();
         string treeNodeName;
         int stringComparison;
         
         while (parentNode != NULL)
         {
             treeNodeName = parentNode->getTokenString();
-            stringComparison = tokenName.compare(treeNodeName);
+            stringComparison = literalName.compare(treeNodeName);
             if (stringComparison == 0)
             {
                 //They are the same identifier token we just need to add a new line number to the list.
                 parentNode->addToLineNumberList(listItem);
                 parentNode = NULL; //Exit the loop
-                delete tok;         //We won't need tok and it won't be deleted in main.
+                delete lit;         //We won't need tok and it won't be deleted in main.
                 success = true;
             }
             else if (stringComparison < 0)
@@ -87,8 +88,8 @@ bool IdentifierBinaryTree::addIdentifier(Token *tok, int lineNum)
                 if (parentNode->getLeftChild() == NULL)
                 {
                     //Add tok to the left
-                    tok->addToLineNumberList(listItem);
-                    parentNode->setLeftChild(tok);
+                    lit->addToLineNumberList(listItem);
+                    parentNode->setLeftChild(lit);
                     parentNode = NULL;
                     success = true;
                 }
@@ -103,8 +104,8 @@ bool IdentifierBinaryTree::addIdentifier(Token *tok, int lineNum)
                 if (parentNode->getRightChild() == NULL)
                 {
                     //Add tok to the right
-                    tok->addToLineNumberList(listItem);
-                    parentNode->setRightChild(tok);
+                    lit->addToLineNumberList(listItem);
+                    parentNode->setRightChild(lit);
                     parentNode = NULL;
                     success = true;
                 }

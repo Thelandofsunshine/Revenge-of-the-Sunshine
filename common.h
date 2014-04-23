@@ -3,7 +3,12 @@
 //  Lab3
 //
 //  Created by Bryce Holton.
-//
+//	Updated by:
+//	Savannah Puckett (snpucket)
+//	Ashley Kruger (alkruege)
+//	Emily Falkner (emilymarie)
+//	Scott Dexhimer (SDexh)
+//	Git Hub URL: https://github.com/Thelandofsunshine/Revenge-of-the-Sunshine
 
 #ifndef CSE220_project2_common_h
 #define CSE220_project2_common_h

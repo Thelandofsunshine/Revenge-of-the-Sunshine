@@ -69,10 +69,10 @@ public:
 	String (string str) : Node<string> (str) {}
 	void print();
 };
-class Real : public Node<double>
+class Real : public Node<float>
 {
 public:
-	Real (double dbl) : Node<double> (dbl) {}
+	Real (float dbl) : Node<float> (dbl) {}
 	void print();
 };
 class Integer : public Node<int>

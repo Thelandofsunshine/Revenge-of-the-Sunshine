@@ -3,9 +3,9 @@
 //  Lab4
 //
 // Savannah Puckett (snpucket)
-// Ashley Kruger (alkruege)
+// Ashley Krueger (alkruege)
 // Emily Falkner (emilymarie)
-// Scott Dexhimer (SDexh)
+// Scott Dexheimer (SDexh)
 
 #ifndef Lit_h
 #define Lit_h

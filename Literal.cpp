@@ -4,9 +4,9 @@
 //
 //	Updated by:
 //	Savannah Puckett (snpucket)
-//	Ashley Kruger (alkruege)
+//	Ashley Krueger (alkruege)
 //	Emily Falkner (emilymarie)
-//	Scott Dexhimer (SDexh)
+//	Scott Dexheimer (SDexh)
 //	Git Hub URL: https://github.com/Thelandofsunshine/Revenge-of-the-Sunshine
 
 #include "Literal.h"

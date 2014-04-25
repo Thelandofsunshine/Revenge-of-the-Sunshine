@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Bryce Holton. All rights reserved.
 //	Updated by:
 //	Savannah Puckett (snpucket)
-//	Ashley Kruger (alkruege)
+//	Ashley Krueger (alkruege)
 //	Emily Falkner (emilymarie)
-//	Scott Dexhimer (SDexh)
+//	Scott Dexheimer (SDexh)
 //	Git Hub URL: https://github.com/Thelandofsunshine/Revenge-of-the-Sunshine
 #ifndef __Lab4__IdentifierBinaryTree__
 #define __Lab4__IdentifierBinaryTree__
